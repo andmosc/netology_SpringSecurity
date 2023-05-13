@@ -1,0 +1,45 @@
+<%@page pageEncoding="UTF-8" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Security</title>
+</head>
+<body>
+<h2>Данные сотрудника: </h2>
+<br>
+<form:form action="saveEmployee" modelAttribute="employee" method="post">
+
+    <form:hidden path="id"/>
+
+    <label>
+        Имя: <form:input path="name"/>
+    </label>
+    <br><br>
+    <label>
+        Фамилия: <form:input path="surname"/>
+    </label>
+    <br><br>
+    <label>
+        Возраст: <form:input path="age"/>
+        <br><br>
+    </label>
+
+    <label>
+        Депортамент:
+        <form:select path="department">
+            <form:options items="${listDepartments}"/>
+        </form:select>
+    </label>
+
+    <br><br>
+    <input type="submit" value="ok">
+
+</form:form>
+
+</body>
+
+</html>
